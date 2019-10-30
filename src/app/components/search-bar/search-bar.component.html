@@ -1,0 +1,13 @@
+<h1>Search for Something</h1>
+<hr/>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="searchBar">
+<div>
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="This Person Search" formControlName="personsName" type="name" required />
+        </mat-form-field>
+    </div>
+</div>
+<button mat-raised-button class="nav-btn" color="primary" type="submit">Search</button>
+</form>
