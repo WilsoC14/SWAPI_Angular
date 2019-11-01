@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
 import { SWAPIService } from 'src/app/services/swapi.service';
-import { Person } from 'src/app/Models/Person'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -12,8 +12,7 @@ import { Person } from 'src/app/Models/Person'
 export class SearchBarComponent implements OnInit {
 
   private searchBar: FormGroup;
-  public person: Person[] = [];
-  constructor(private formBuilder: FormBuilder, private swapiService: SWAPIService) {
+  constructor(private formBuilder: FormBuilder, private swapiService: SWAPIService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.createForm();
    }
 
@@ -22,13 +21,28 @@ export class SearchBarComponent implements OnInit {
 
   createForm() {
     this.searchBar = this.formBuilder.group({
-      /* Need to determine what goes in here
-            if this were a Person search bar: would     name: new FormControl    go here?  */
-      name: new FormControl
+       name: new FormControl
     })
 
   }
-    onSubmit() {
+  onSubmit() {
+
+    this.activatedRoute.paramMap.subscribe(routeData => {
+      console.log(this.searchBar.value)});
+      
+    };
+     /* this.swapiService.getPerson(this.searchBar.value).subscribe(() => {
+        this.router.navigate(['/people/person-index']); */
+      
+      /*since this is the search-bar component, i think it's best to just capture the value
+      and route it to another component to call the service and connect with the api; single responsibility"
+      /*instead of this code above, need to use ActivatedRoute, see module 13*/
+          /*see about storing data on browser's local storage? */
+  }
+
+  
+  /*
+  onSubmit() {
         this.swapiService.getPerson(this.searchBar.value.name).subscribe(data => {this.person = data['results']});
           this.gotPerson(this.person[0]);
         
@@ -39,10 +53,9 @@ export class SearchBarComponent implements OnInit {
         console.log(person);
              
       }
-
+*/
       
    
 
 
 
-}

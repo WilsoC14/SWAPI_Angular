@@ -10,9 +10,12 @@ import { Person } from 'src/app/models/Person';
 })
 export class PersonDetailComponent implements OnInit {
 
-  constructor( private activatedRoute: ActivatedRoute) { }
+  constructor( private activatedRoute: ActivatedRoute, private swapiService: SWAPIService) { }
 
   ngOnInit() {    /*need to set up route to get the value of name. I copied this from when we previously were logging the data within the searchBar component*/
+    this
+
+
     this.activatedRoute.data.subscribe(routeData => {console.log(routeData);
     });
   }

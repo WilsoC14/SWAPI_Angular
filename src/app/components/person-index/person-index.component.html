@@ -1,0 +1,21 @@
+<h2>These are the People!</h2>
+
+<div>
+    <mat-table [dataSource]="dataSource">
+        <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+        <ng-container matColumnDef="details">
+            <mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+            <mat-cell *matCellDef="let person">
+                <i class="material-icons" routerLink="/person/detail/{{person.personId}}">library_books</i>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Name">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Name</mat-header-cell>
+			<mat-cell *matCellDef="let person">{{person.name}}</mat-cell>
+		</ng-container>
+
+        
+    </mat-table>
+</div>

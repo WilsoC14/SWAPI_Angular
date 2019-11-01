@@ -9,6 +9,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatTableModule,
+  MatTableDataSource
 } from "@angular/material";
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,14 +17,13 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SWAPIService } from './services/swapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonDetailComponent } from './components/person-detail/person-detail.component';
-/*
-import { PersonDetailComponent } from './components/person-detail/person-detail.component';
-*/
+/*import { PersonIndexComponent } from './components/person-index/person-index.component';*/
+
 const routes = [
-  { /*path: 'person', component: PersonDetailComponent */
-path: 'name' , component: SearchBarComponent
-},
-{ path: 'person', component: PersonDetailComponent }
+    /*{path: '**', component: SearchBarComponent },
+    {path: 'people', children: [
+      { path: 'person-index', component: PersonIndexComponent }
+    ]},*/
 ];
 
 @NgModule({
@@ -32,7 +32,8 @@ path: 'name' , component: SearchBarComponent
     HeaderComponent,
     SearchBarComponent,
     PersonDetailComponent,
-   /* PersonDetailComponent */
+    /*PersonIndexComponent,*/
+    
   ],
   imports: [
     BrowserModule,
@@ -45,11 +46,12 @@ path: 'name' , component: SearchBarComponent
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    /*MatTableDataSource,*/
     HttpClientModule
 
   ],
   providers: [
-  SWAPIService
+    SWAPIService
   ],
   bootstrap: [AppComponent]
 })
