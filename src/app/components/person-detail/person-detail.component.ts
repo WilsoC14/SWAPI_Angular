@@ -1,8 +1,7 @@
-/*
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SWAPIService } from 'src/app/services/swapi.service';
-import { swapiData } from 'src/app/models/swapiData';
-import { MatTableDataSource } from '@angular/material';
+import { Person } from 'src/app/models/Person';
 
 @Component({
   selector: 'app-person-detail',
@@ -11,16 +10,13 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class PersonDetailComponent implements OnInit {
 
-  columnNames = ['name', 'birth_year']
+  constructor( private activatedRoute: ActivatedRoute) { }
 
-  dataSource: MatTableDataSource<swapiData>
-  constructor(private swapiService: SWAPIService) { }
-
-  ngOnInit() {
-    this.swapiService.getPerson().subscribe((person: swapiData[])=>{
-
+  ngOnInit() {    /*need to set up route to get the value of name. I copied this from when we previously were logging the data within the searchBar component*/
+    this.activatedRoute.data.subscribe(routeData => {console.log(routeData);
     });
   }
-
 }
-*/
+
+
+

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
 import { SWAPIService } from 'src/app/services/swapi.service';
+import { Person } from 'src/app/Models/Person'
 
-
-const Api_Url = 'https://swapi.co/api/'
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
@@ -13,6 +12,7 @@ const Api_Url = 'https://swapi.co/api/'
 export class SearchBarComponent implements OnInit {
 
   private searchBar: FormGroup;
+  public person: Person[] = [];
   constructor(private formBuilder: FormBuilder, private swapiService: SWAPIService) {
     this.createForm();
    }
@@ -29,14 +29,20 @@ export class SearchBarComponent implements OnInit {
 
   }
     onSubmit() {
-            /* call Api_Url here and append input to satisfy SWAPI query??? */
-            /* first will get information displayed in the console log, then will work on displaying that information in the view"*/
-       /* console.log(this.searchBar.value); */
-        this.swapiService.getPerson(this.searchBar.value.name).subscribe((response) => this.gotPerson(response));
+        this.swapiService.getPerson(this.searchBar.value.name).subscribe(data => {this.person = data['results']});
+          this.gotPerson(this.person[0]);
+        
       }
-      gotPerson(response)
+
+      gotPerson(person)
       {
-        console.log(response);
+        console.log(person);
+             
       }
+
+      
+   
+
+
 
 }

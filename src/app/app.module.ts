@@ -15,13 +15,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SWAPIService } from './services/swapi.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PersonDetailComponent } from './components/person-detail/person-detail.component';
 /*
 import { PersonDetailComponent } from './components/person-detail/person-detail.component';
 */
 const routes = [
   { /*path: 'person', component: PersonDetailComponent */
 path: 'name' , component: SearchBarComponent
-}
+},
+{ path: 'person', component: PersonDetailComponent }
 ];
 
 @NgModule({
@@ -29,6 +31,7 @@ path: 'name' , component: SearchBarComponent
     AppComponent,
     HeaderComponent,
     SearchBarComponent,
+    PersonDetailComponent,
    /* PersonDetailComponent */
   ],
   imports: [
