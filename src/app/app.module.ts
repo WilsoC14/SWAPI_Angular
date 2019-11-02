@@ -9,7 +9,6 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatTableModule,
-  MatTableDataSource
 } from "@angular/material";
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,7 +16,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SWAPIService } from './services/swapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PersonDetailComponent } from './components/person-detail/person-detail.component';
-/*import { PersonIndexComponent } from './components/person-index/person-index.component';*/
+import { PersonIndexComponent } from './components/person-index/person-index.component';
 
 const routes = [
     /*{path: '**', component: SearchBarComponent },
@@ -32,7 +31,7 @@ const routes = [
     HeaderComponent,
     SearchBarComponent,
     PersonDetailComponent,
-    /*PersonIndexComponent,*/
+    PersonIndexComponent
     
   ],
   imports: [
@@ -46,7 +45,6 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    /*MatTableDataSource,*/
     HttpClientModule
 
   ],

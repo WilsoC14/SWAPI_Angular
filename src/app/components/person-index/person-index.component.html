@@ -1,6 +1,6 @@
 <h2>These are the People!</h2>
-
-<div>
+<p>{{parentData}}</p>
+<!--<div>
     <mat-table [dataSource]="dataSource">
         <mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
         <mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
@@ -14,8 +14,20 @@
         <ng-container matColumnDef="Name">
 			<mat-header-cell *matHeaderCellDef class="matColumnSize">Name</mat-header-cell>
 			<mat-cell *matCellDef="let person">{{person.name}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="birth_year">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Birth Year</mat-header-cell>
+			<mat-cell *matCellDef="let person">{{person.birth_year}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Gender">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Gender</mat-header-cell>
+			<mat-cell *matCellDef="let person">{{person.Gender}}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Homeworld">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Homeworld</mat-header-cell>
+			<mat-cell *matCellDef="let person">{{person.Home-world}}</mat-cell>
 		</ng-container>
 
         
     </mat-table>
-</div>
+</div>-->

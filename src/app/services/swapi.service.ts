@@ -12,7 +12,7 @@ export class SWAPIService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getPerson(name) {
-    return this.http.get(`${Api_Url}/people?search=${name}`);
+    return this.http.get(`${Api_Url}/planets?search=${name}`);
     
      }
   

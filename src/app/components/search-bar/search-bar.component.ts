@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms"
 import { SWAPIService } from 'src/app/services/swapi.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -10,7 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class SearchBarComponent implements OnInit {
-
+  
+  public name;
   private searchBar: FormGroup;
   constructor(private formBuilder: FormBuilder, private swapiService: SWAPIService, private router: Router, private activatedRoute: ActivatedRoute) {
     this.createForm();
@@ -27,8 +28,10 @@ export class SearchBarComponent implements OnInit {
   }
   onSubmit() {
 
-    this.activatedRoute.paramMap.subscribe(routeData => {
-      console.log(this.searchBar.value)});
+    this.name = this.searchBar.value.name;
+    /*this.activatedRoute.paramMap.subscribe(routeData => {
+         console.log(this.searchBar.value)}); */
+      
       
     };
      /* this.swapiService.getPerson(this.searchBar.value).subscribe(() => {
@@ -44,7 +47,7 @@ export class SearchBarComponent implements OnInit {
   /*
   onSubmit() {
         this.swapiService.getPerson(this.searchBar.value.name).subscribe(data => {this.person = data['results']});
-          this.gotPerson(this.person[0]);
+          this.gotPerson(this.person[]);
         
       }
 
